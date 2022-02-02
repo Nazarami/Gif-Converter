@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  // background-color: green;
+  border-bottom: #eaeaea solid 1px;
+}
+
+.logoWrapper {
+  display: flex;
+  width: 70%;
+  justify-content: space-evenly;
+  background-color: red;
+}
+
+.menuWrapper {
+  background-color: blue;
+  width: 20%;
+}

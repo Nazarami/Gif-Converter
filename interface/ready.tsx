@@ -8,6 +8,7 @@ export interface ReadyProps {
 export interface GifConvertProps {
   (
     inputVideo: File,
-    setGif: React.Dispatch<React.SetStateAction<string>>
+    setGif: React.Dispatch<React.SetStateAction<string>>,
+    compressionOption: number
   ): Promise<void>;
 }

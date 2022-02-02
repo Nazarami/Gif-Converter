@@ -1,10 +1,13 @@
 import { NextPage } from "next";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/ready.module.scss";
 import { ReadyProps } from "../interface/ready";
 import { convertToGif } from "../functions/ready";
+import Navbar from "./Navbar";
 const Ready: NextPage<ReadyProps> = (props) => {
+  let outputQuality = 0;
   return (
     <div className={styles.container}>
+      <Navbar />
       {props.inputVideo && (
         <video
           controls
@@ -24,7 +27,7 @@ const Ready: NextPage<ReadyProps> = (props) => {
       <button
         onClick={() => {
           if (!props.inputVideo) return;
-          convertToGif(props.inputVideo, props.setGif);
+          convertToGif(props.inputVideo, props.setGif, outputQuality);
         }}
       >
         Convert
