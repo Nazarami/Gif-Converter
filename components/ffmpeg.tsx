@@ -5,7 +5,9 @@ const ffmpeg = createFFmpeg({
 });
 
 export async function load() {
-  await ffmpeg.load();
+  if (!ffmpeg.isLoaded()) {
+    await ffmpeg.load();
+  }
 }
 
 export default ffmpeg;
