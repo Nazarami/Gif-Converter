@@ -1,12 +1,20 @@
 import { fetchFile } from "@ffmpeg/ffmpeg";
 import ffmpeg from "../components/ffmpeg";
 import { GifConvertProps } from "../interface/ready";
+ffmpeg.setProgress(({ ratio }) => {
+  let progress = parseInt((ratio * 100).toString());
+  console.log(progress);
+  /*
+   * ratio is a float number between 0 to 1.
+   */
+});
 
 export const convertToGif: GifConvertProps = async (
   inputVideo,
   setGif,
   compressionOption
 ) => {
+  const progress = 0;
   const qualityOptions = [
     "fps=10, scale=480:-1",
     "fps=15, scale=720:-1",

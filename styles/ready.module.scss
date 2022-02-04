@@ -1,33 +1,36 @@
 .container {
-  //   background-color: red;
+  // background-color: red;
   padding: 0;
   margin: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .bodyContainer {
-  //   background-color: green;
-  height: 100%;
+  // background-color: green;
+  height: 85%;
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 .bodyWrapper {
-  margin-top: 30px;
-  //   background-color: blue;
+  // margin-top: 30px;
+  // background-color: blue;
   height: 50%;
   width: 60%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  // align-items: center;
+  // justify-content: center;
 }
 
 .dropVideoWrapper {
   border-radius: 2%;
-  width: 70%;
+  width: 852px;
+  height: 480px;
   background-color: #f8f8f8;
   align-items: center;
   justify-content: center;
@@ -38,8 +41,8 @@
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='34' ry='34' stroke='%23b3b3b3' stroke-width='7' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
   border-radius: 34px;
   display: flex;
-  height: 60%;
-  width: 50%;
+  width: 400px;
+  height: 288px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -82,4 +85,63 @@
 .subTitleParagraph {
   font-size: 0.8rem;
   font-weight: 300;
+}
+
+// Uploaded Video
+.uploadedVideoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploadedVideo {
+  border-radius: 2%;
+  width: 100%;
+}
+
+.qualityWrapper {
+  display: flex;
+  // background-color: blue;
+  flex-direction: column;
+}
+
+.selectionWrapper {
+  // background-color: red;
+}
+.dot {
+  height: 8px;
+  width: 8px;
+  background-color: rgb(255, 255, 255);
+  border: rgb(68, 67, 67) solid 0.5px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+  cursor: pointer;
+  &:hover {
+    border: rgb(60, 132, 226) solid 0.5px;
+  }
+}
+
+.dotSelected {
+  background-color: rgb(60, 132, 226);
+  &:hover {
+    border: rgb(68, 67, 67) solid 0.5px;
+  }
+}
+
+.dotSelectionText {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.downloadButton {
+  color: white;
+  background-color: #5c5ce0;
+  width: 100px;
+  height: 40px;
+  border-radius: 500px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
 }

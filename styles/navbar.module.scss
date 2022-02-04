@@ -2,19 +2,18 @@
 
 .wrapper {
   display: flex;
-  justify-content: space-between;
   border-bottom: #eaeaea solid 1px;
-  // background: rgb(198, 201, 7);
   height: 80px;
-  padding: 0 300px;
+  // height: 10%;
+  width: 100%;
+  justify-content: center;
+  // background-color: #1473e6;
 }
 
 .logoWrapper {
   display: flex;
-  width: 70%;
-  // justify-content: center;
-  // align-items: center;
-  // background-color: red;
+  align-items: center;
+  margin-right: 17%;
 }
 
 .logoWrapperNavBar {
@@ -28,8 +27,8 @@
 .navbarMenuWrapper {
   // background-color: aqua;
   display: flex;
-  width: 100%;
-  align-items: center;
+  // width: 100%;
+  // align-items: center;
 }
 .navBarItem {
   font-family: "Roboto", sans-serif;

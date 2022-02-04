@@ -4,24 +4,43 @@ import { ReadyProps } from "../interface/ready";
 import { convertToGif } from "../functions/ready";
 import Navbar from "./Navbar";
 import UploadIcon from "./upload.svg";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import PlayIcon from "./play.svg";
+
 const Ready: NextPage<ReadyProps> = (props) => {
-  let outputQuality = 0;
-  const inputFile = useRef(null);
+  let outputQuality = 2;
+  const inputFile = useRef<any>(null);
+  const videoControls = useRef<any>(null);
+  const [selected, setSelected] = useState(1);
+  const downloadFile = useRef<any>(null);
+  const [converting, setConverting] = useState(false);
 
   return (
     <div className={styles.container}>
       <Navbar />
       <div className={styles.bodyContainer}>
         <div className={styles.bodyWrapper}>
-          <div className={styles.dropVideoWrapper}>
+          <div
+            className={styles.dropVideoWrapper}
+            style={props.inputVideo ? { background: "white" } : {}}
+          >
             {props.inputVideo ? (
-              <video
-                controls
-                width="250"
-                height="250"
-                src={URL.createObjectURL(props.inputVideo)}
-              ></video>
+              <div
+                className={styles.uploadedVideoContainer}
+                onClick={() => {
+                  if (videoControls.current.paused) {
+                    videoControls.current.play();
+                  } else {
+                    videoControls.current.pause();
+                  }
+                }}
+              >
+                <video
+                  src={URL.createObjectURL(props.inputVideo)}
+                  ref={videoControls}
+                  className={styles.uploadedVideo}
+                ></video>
+              </div>
             ) : (
               <div className={styles.outlineVideoWrapper}>
                 <UploadIcon height="35px" width="35px" />
@@ -59,7 +78,69 @@ const Ready: NextPage<ReadyProps> = (props) => {
               </h6>
               {props.inputVideo ? (
                 <div className={styles.uploadedVideoWrapper}>
-                  <h5>File size</h5>
+                  {/* <h5 style={{ marginBottom: 0 }}>File size</h5>
+                  <div className={styles.qualityWrapper}>
+                    <div className={styles.selectionWrapper}>
+                      <span
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setSelected(0);
+                        }}
+                        className={`${styles.dot} ${
+                          selected === 0 ? styles.dotSelected : ""
+                        }`}
+                      ></span>
+                      <p className={styles.dotSelectionText}>Small</p>
+                    </div>
+                    <div className={styles.selectionWrapper}>
+                      <span
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setSelected(1);
+                        }}
+                        className={`${styles.dot} ${
+                          selected === 1 ? styles.dotSelected : ""
+                        }`}
+                      ></span>
+                      <p className={styles.dotSelectionText}>Medium</p>
+                    </div>
+                    <div className={styles.selectionWrapper}>
+                      <span
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setSelected(2);
+                        }}
+                        className={`${styles.dot} ${
+                          selected === 2 ? styles.dotSelected : ""
+                        }`}
+                      ></span>
+                      <p className={styles.dotSelectionText}>Large</p>
+                    </div>
+                  </div> */}
+                  <button
+                    className={styles.downloadButton}
+                    {...(converting ? { disabled: true } : {})}
+                    onClick={() => {
+                      if (!props.inputVideo) return;
+                      setConverting(true);
+                      convertToGif(
+                        props.inputVideo,
+                        props.setGif,
+                        outputQuality
+                      ).then(() => {
+                        downloadFile.current.click();
+                        setConverting(false);
+                      });
+                    }}
+                  >
+                    Download
+                  </button>
+                  <a
+                    ref={downloadFile}
+                    href={props.gif}
+                    download
+                    style={{ display: "none" }}
+                  ></a>
                 </div>
               ) : (
                 <p className={styles.subTitleParagraph}>
@@ -71,16 +152,6 @@ const Ready: NextPage<ReadyProps> = (props) => {
           </div>
         </div>
       </div>
-      <h3>Result</h3>
-      <button
-        onClick={() => {
-          if (!props.inputVideo) return;
-          convertToGif(props.inputVideo, props.setGif, outputQuality);
-        }}
-      >
-        Convert
-      </button>
-      {props.gif && <img src={props.gif} width="250" />}
     </div>
   );
 };
