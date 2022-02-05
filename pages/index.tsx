@@ -2,13 +2,11 @@ import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { load } from "components/ffmpeg";
 import Loading from "components/loading";
-import Ready from "components/ready";
-import Navbar from "components/Navbar/Navbar";
+import Body from "components/Body/Main";
+import Navbar from "components/Navbar/Main";
 // Max input is 2GB or 4GB.
 const Home: NextPage = () => {
   const [ready, setReady] = useState(false);
-  const [inputVideo, setInputVideo] = useState<File>();
-  const [gif, setGif] = useState("");
 
   useEffect(() => {
     load();
@@ -18,12 +16,7 @@ const Home: NextPage = () => {
   return ready ? (
     <>
       <Navbar />
-      {/* <Ready
-        inputVideo={inputVideo}
-        setInputVideo={setInputVideo}
-        gif={gif}
-        setGif={setGif}
-      /> */}
+      {/* <Body /> */}
     </>
   ) : (
     <Loading />

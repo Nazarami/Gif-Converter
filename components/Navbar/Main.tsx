@@ -1,4 +1,4 @@
-import Menu from "./Menu";
+import Menu from "./Menu/Main";
 import SocialMedia from "./SocialMedia/Main";
 import styles from "styles/navbar/main.module.scss";
 import { MountainLogo } from "public/navbar/icons";

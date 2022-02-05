@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/videoPreview.module.scss";
+import styles from "styles/videoPreview.module.scss";
 import { useRef } from "react";
 
 function VideoPreview({ inputVideo }: any) {

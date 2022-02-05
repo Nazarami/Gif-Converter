@@ -1,68 +1,30 @@
 import { NextPage } from "next";
-import styles from "../styles/ready.module.scss";
-import { ReadyProps } from "../interface/ready";
-import { convertToGif } from "../functions/ready";
-import Navbar from "./Navbar/Navbar";
-import UploadIcon from "./upload.svg";
+import styles from "styles/body/main.module.scss";
+import { convertToGif } from "../../functions/ready";
 import { useRef, useState } from "react";
-import PlayIcon from "./play.svg";
-import VideoPreview from "./VideoPreview";
-const Ready: NextPage<ReadyProps> = (props) => {
+
+import BeforeUpload from "./beforeUpload";
+
+const Ready: NextPage = () => {
   let outputQuality = 2;
   const [selected, setSelected] = useState(1);
-  const inputFile = useRef<any>(null);
   const downloadFile = useRef<any>(null);
   const [converting, setConverting] = useState(false);
+  const [inputVideo, setInputVideo] = useState<File>();
+  const [gif, setGif] = useState("");
 
   return (
-    <div className={styles.container}>
-      <Navbar />
-      <div className={styles.bodyContainer}>
-        <div className={styles.bodyWrapper}>
-          <div
-            className={styles.dropVideoWrapper}
-            style={props.inputVideo ? { background: "white" } : {}}
-          >
-            {props.inputVideo ? (
-              <VideoPreview inputVideo={props.inputVideo} />
-            ) : (
-              <div className={styles.outlineVideoWrapper}>
-                <UploadIcon height="35px" width="35px" />
-                <h1 className={styles.videoWrapperHeader}>
-                  Drag and drop a video
-                </h1>
-                <input
-                  type="file"
-                  id="file"
-                  ref={inputFile}
-                  style={{ display: "none" }}
-                  onChange={(e) => {
-                    if (!e.target.files) return;
-                    props.setInputVideo(e.target.files[0]);
-                  }}
-                />
-                <p
-                  className={styles.dropVideoSubHeader}
-                  onClick={() => {
-                    if (inputFile.current) {
-                      inputFile.current.click();
-                    }
-                  }}
-                >
-                  Browse on your device
-                </p>
-              </div>
-            )}
-          </div>
-          <div className={styles.sideHeader}>
+    <div className={styles.wrapper}>
+      <BeforeUpload inputVideo={inputVideo} setInputVideo={setInputVideo} />
+      {/* <div className={styles.sideHeader}>
             <h1 className={styles.sideHeaderTitle}>Convert to GIF</h1>
             <div className={styles.subTitle}>
               <h6 className={styles.subTitleHeader}>
                 Powered by <em>WASM</em>
               </h6>
-              {props.inputVideo ? (
+              {inputVideo ? (
                 <div className={styles.uploadedVideoWrapper}>
-                  {/* <h5 style={{ marginBottom: 0 }}>File size</h5>
+                  <h5 style={{ marginBottom: 0 }}>File size</h5>
                   <div className={styles.qualityWrapper}>
                     <div className={styles.selectionWrapper}>
                       <span
@@ -100,21 +62,19 @@ const Ready: NextPage<ReadyProps> = (props) => {
                       ></span>
                       <p className={styles.dotSelectionText}>Large</p>
                     </div>
-                  </div> */}
+                  </div>
                   {!converting ? (
                     <button
                       className={styles.downloadButton}
                       onClick={() => {
-                        if (!props.inputVideo) return;
+                        if (!inputVideo) return;
                         setConverting(true);
-                        convertToGif(
-                          props.inputVideo,
-                          props.setGif,
-                          outputQuality
-                        ).then(() => {
-                          downloadFile.current.click();
-                          setConverting(false);
-                        });
+                        convertToGif(inputVideo, setGif, outputQuality).then(
+                          () => {
+                            downloadFile.current.click();
+                            setConverting(false);
+                          }
+                        );
                       }}
                     >
                       Download
@@ -124,7 +84,7 @@ const Ready: NextPage<ReadyProps> = (props) => {
                   )}
                   <a
                     ref={downloadFile}
-                    href={props.gif}
+                    href={gif}
                     download
                     style={{ display: "none" }}
                   ></a>
@@ -136,9 +96,7 @@ const Ready: NextPage<ReadyProps> = (props) => {
                 </p>
               )}
             </div>
-          </div>
-        </div>
-      </div>
+          </div> */}
     </div>
   );
 };
