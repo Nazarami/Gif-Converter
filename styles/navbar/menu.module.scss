@@ -1,0 +1,17 @@
+.menu {
+  display: flex;
+  h1 {
+    font-family: "Roboto", sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #484848;
+    cursor: pointer;
+
+    &:hover {
+      transition: color 0.2s ease-in-out;
+      color: #1473e6;
+    }
+  }
+}
