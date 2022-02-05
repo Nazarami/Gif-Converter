@@ -2,16 +2,15 @@ import { NextPage } from "next";
 import styles from "../styles/ready.module.scss";
 import { ReadyProps } from "../interface/ready";
 import { convertToGif } from "../functions/ready";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar/Navbar";
 import UploadIcon from "./upload.svg";
 import { useRef, useState } from "react";
 import PlayIcon from "./play.svg";
-
+import VideoPreview from "./VideoPreview";
 const Ready: NextPage<ReadyProps> = (props) => {
   let outputQuality = 2;
-  const inputFile = useRef<any>(null);
-  const videoControls = useRef<any>(null);
   const [selected, setSelected] = useState(1);
+  const inputFile = useRef<any>(null);
   const downloadFile = useRef<any>(null);
   const [converting, setConverting] = useState(false);
 
@@ -25,22 +24,7 @@ const Ready: NextPage<ReadyProps> = (props) => {
             style={props.inputVideo ? { background: "white" } : {}}
           >
             {props.inputVideo ? (
-              <div
-                className={styles.uploadedVideoContainer}
-                onClick={() => {
-                  if (videoControls.current.paused) {
-                    videoControls.current.play();
-                  } else {
-                    videoControls.current.pause();
-                  }
-                }}
-              >
-                <video
-                  src={URL.createObjectURL(props.inputVideo)}
-                  ref={videoControls}
-                  className={styles.uploadedVideo}
-                ></video>
-              </div>
+              <VideoPreview inputVideo={props.inputVideo} />
             ) : (
               <div className={styles.outlineVideoWrapper}>
                 <UploadIcon height="35px" width="35px" />
@@ -117,24 +101,27 @@ const Ready: NextPage<ReadyProps> = (props) => {
                       <p className={styles.dotSelectionText}>Large</p>
                     </div>
                   </div> */}
-                  <button
-                    className={styles.downloadButton}
-                    {...(converting ? { disabled: true } : {})}
-                    onClick={() => {
-                      if (!props.inputVideo) return;
-                      setConverting(true);
-                      convertToGif(
-                        props.inputVideo,
-                        props.setGif,
-                        outputQuality
-                      ).then(() => {
-                        downloadFile.current.click();
-                        setConverting(false);
-                      });
-                    }}
-                  >
-                    Download
-                  </button>
+                  {!converting ? (
+                    <button
+                      className={styles.downloadButton}
+                      onClick={() => {
+                        if (!props.inputVideo) return;
+                        setConverting(true);
+                        convertToGif(
+                          props.inputVideo,
+                          props.setGif,
+                          outputQuality
+                        ).then(() => {
+                          downloadFile.current.click();
+                          setConverting(false);
+                        });
+                      }}
+                    >
+                      Download
+                    </button>
+                  ) : (
+                    <h1>Hi</h1>
+                  )}
                   <a
                     ref={downloadFile}
                     href={props.gif}

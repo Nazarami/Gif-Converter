@@ -1,19 +1,12 @@
-import React from "react";
-import styles from "../styles/navbar.module.scss";
-import Logo from "./mountain.svg";
-import LinkedIn from "./linkedin-icon.svg";
-import Github from "./github.svg";
-import { useRouter } from "next/router";
 import Link from "next/link";
+import styles from "styles/navbar.module.scss";
+import { Github, LinkedIn, MountainLogo } from "public/navbar/icons";
 
 function Navbar() {
-  // const router = useRouter();
   return (
     <div className={styles.wrapper}>
       <div className={styles.logoWrapper}>
-        {/* <div className={styles.logoWrapperNavBar}> */}
-        <Logo height="50px" width="50px" />
-        {/* </div> */}
+        <MountainLogo height="50px" width="50px" />
         <div className={styles.navbarMenuWrapper}>
           <Link href="about">
             <h1 className={styles.navBarItem}>About</h1>
@@ -21,9 +14,7 @@ function Navbar() {
           <Link href="contact">
             <h1 className={styles.navBarItem}>Contact</h1>
           </Link>
-          {/* </div> */}
         </div>
-        {/* <div className={styles.mediaWrapper}> */}
         <div className={styles.socialMedia}>
           <a target="_blank" href="https://github.com/Nazarami20">
             <div className={styles.logoItem}>
