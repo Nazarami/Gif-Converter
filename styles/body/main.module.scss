@@ -1,7 +1,45 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  // background-color: red;
+}
+
+.bodyContainer {
+  // background-color: green;
+  height: 85%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.bodyWrapper {
+  // margin-top: 30px;
+  // background-color: blue;
+  height: 50%;
+  width: 60%;
+  display: flex;
+  // align-items: center;
+  // justify-content: center;
+}
+
+.dropVideoWrapper {
+  border-radius: 2%;
+  width: 852px;
+  height: 480px;
+  background-color: #f8f8f8;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.outlineVideoWrapper {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='34' ry='34' stroke='%23b3b3b3' stroke-width='7' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 34px;
+  display: flex;
+  width: 400px;
+  height: 288px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .videoWrapperHeader {

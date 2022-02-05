@@ -16,7 +16,7 @@ const Home: NextPage = () => {
   return ready ? (
     <>
       <Navbar />
-      {/* <Body /> */}
+      <Body />
     </>
   ) : (
     <Loading />
