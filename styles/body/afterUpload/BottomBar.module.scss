@@ -1,5 +1,4 @@
 @use "../../mixins.module.scss" as mixins;
-
 .wrapper {
   @include mixins.centred;
   flex-direction: column;
@@ -9,8 +8,8 @@
 }
 
 .downloadButton {
+  @include mixins.buttonEffects;
   color: white;
-  background-color: #5c5ce0;
   font-weight: 600;
   width: 806px;
   height: 40px;
@@ -18,7 +17,6 @@
   border: none;
   margin-top: 10px;
   margin-bottom: 10px;
-  cursor: pointer;
 }
 
 .optionsWrapper {
@@ -30,45 +28,35 @@
   height: 80px;
   margin-top: 8px;
   border-radius: 23px;
-  // background-color: green;
-  // border: gray solid 1px;
 }
 
 .optionItems {
   @include mixins.centred;
+  @include mixins.buttonEffects;
   width: 27%;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
-  background-color: #5c5ce0;
-
   p {
     color: white;
     font-weight: 600;
   }
-  &:hover {
-    cursor: pointer;
-    border: #00e1ff7e solid 2px;
-    transform: scale(1.1);
-    background-color: #5353ca;
-  }
-  transition: background-color 0.2s ease-in-out;
-  transition: border 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
 }
 
 // Progress Bar
-$borderRadius: 5px;
 .progressWrapper {
   width: 795px;
   height: 20px;
-  border-radius: $borderRadius;
-  // background-color: red;
-  border: black solid 1px;
+  border-radius: 5px;
+  border: #0000007e solid 2px;
 }
 
 .progressBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
   height: 100%;
   transition: width 0.3s ease;
-  background-color: #96d294;
+  background-color: #56f051;
 }
