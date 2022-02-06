@@ -1,12 +1,10 @@
 import React from "react";
-import styles from "styles/videoPreview.module.scss";
+import styles from "styles/body/afterUpload/body.module.scss";
 import { useRef } from "react";
-
-function VideoPreview({ inputVideo }: any) {
+function VideoPreview({ video }: { video: File }) {
   const videoControls = useRef<any>(null);
   return (
     <div
-      className={styles.uploadedVideoContainer}
       onClick={() => {
         if (videoControls.current.paused) {
           videoControls.current.play();
@@ -16,7 +14,7 @@ function VideoPreview({ inputVideo }: any) {
       }}
     >
       <video
-        src={URL.createObjectURL(inputVideo)}
+        src={URL.createObjectURL(video)}
         ref={videoControls}
         className={styles.uploadedVideo}
       ></video>

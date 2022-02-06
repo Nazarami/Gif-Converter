@@ -1,0 +1,27 @@
+@use "../../mixins.module.scss" as mixins;
+.wrapper {
+  @include mixins.centred;
+  background-color: #f8f8f8;
+  border-radius: 2%;
+  width: 812px;
+  height: 440px;
+}
+
+.dottedOutline {
+  @include mixins.centred;
+  flex-direction: column;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='34' ry='34' stroke='%23b3b3b3' stroke-width='7' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 34px;
+  width: 400px;
+  height: 288px;
+}
+
+// File Upload
+.uploadVideoPrompt {
+  font-size: 0.7rem;
+  color: #5c5ce0;
+  cursor: pointer;
+  &:hover {
+    filter: brightness(82%);
+  }
+}

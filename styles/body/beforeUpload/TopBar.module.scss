@@ -1,0 +1,18 @@
+@use "../../mixins.module.scss" as mixins;
+
+.wrapper {
+  @include mixins.centred;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 1rem;
+  h1 {
+    @include mixins.noMargin;
+  }
+  p {
+    @include mixins.noMargin;
+    font-size: 0.8rem;
+    font-weight: 300;
+  }
+}

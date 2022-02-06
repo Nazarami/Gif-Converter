@@ -5,7 +5,7 @@ function Menu() {
   return (
     <div className={styles.menu}>
       {urls.map((url) => (
-        <MenuItem url={url} />
+        <MenuItem url={url} key={url} />
       ))}
     </div>
   );

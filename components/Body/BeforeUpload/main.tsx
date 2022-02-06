@@ -1,12 +1,12 @@
-import React from "react";
-import Body from "./body";
-import SideBar from "./sideBar";
+import Body from "./Body/Main";
+import Top from "./TopBar";
+import BottomBar from "./BottomBar";
 function main() {
   return (
     <div>
-      Before Upload
+      <Top />
       <Body />
-      <SideBar />
+      <BottomBar />
     </div>
   );
 }

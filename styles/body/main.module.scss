@@ -46,41 +46,6 @@
   font-size: 1.5rem;
 }
 
-.dropVideoSubHeader {
-  font-size: 0.7rem;
-  color: #5c5ce0;
-  cursor: pointer;
-  &:hover {
-    filter: brightness(82%);
-  }
-}
-
-.sideHeader {
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 1rem;
-  justify-content: flex-start;
-  padding-left: 20px;
-}
-
-.subTitleHeader {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-weight: 500;
-  em {
-    font-weight: 400;
-    font-style: bold;
-  }
-}
-
-.subTitleParagraph {
-  font-size: 0.8rem;
-  font-weight: 300;
-}
-
 .qualityWrapper {
   display: flex;
   // background-color: blue;
@@ -115,15 +80,4 @@
   display: inline-block;
   font-weight: 400;
   font-size: 0.8rem;
-}
-
-.downloadButton {
-  color: white;
-  background-color: #5c5ce0;
-  width: 100px;
-  height: 40px;
-  border-radius: 500px;
-  border: none;
-  margin-top: 10px;
-  cursor: pointer;
 }

@@ -1,17 +1,19 @@
 import { fetchFile } from "@ffmpeg/ffmpeg";
 import ffmpeg from "../components/ffmpeg";
-import { GifConvertProps } from "../interface/ready";
-ffmpeg.setProgress(({ ratio }) => {
-  let progress = parseInt((ratio * 100).toString());
-  console.log(progress);
-  /*
-   * ratio is a float number between 0 to 1.
-   */
-});
+import { Dispatch, SetStateAction } from "react";
+import { useState } from "react";
+
+interface GifConvertProps {
+  (
+    inputVideo: File,
+    setOutputVideo: Dispatch<SetStateAction<string>>,
+    outputQuality: number
+  ): Promise<void>;
+}
 
 export const convertToGif: GifConvertProps = async (
-  inputVideo,
-  setGif,
+  video,
+  setOutputVideo,
   compressionOption
 ) => {
   const progress = 0;
@@ -20,7 +22,7 @@ export const convertToGif: GifConvertProps = async (
     "fps=15, scale=720:-1",
     "scale=1080:-1",
   ];
-  ffmpeg.FS("writeFile", "test.mp4", await fetchFile(inputVideo));
+  ffmpeg.FS("writeFile", "test.mp4", await fetchFile(video));
   // Can use a dictionary to pass options
   await ffmpeg.run(
     "-i",
@@ -37,5 +39,5 @@ export const convertToGif: GifConvertProps = async (
   const url = URL.createObjectURL(
     new Blob([data.buffer], { type: "image/gif" })
   );
-  setGif(url);
+  setOutputVideo(url);
 };
