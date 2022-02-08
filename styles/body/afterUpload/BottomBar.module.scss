@@ -60,3 +60,7 @@
   transition: width 0.3s ease;
   background-color: #56f051;
 }
+
+.selectedQuality {
+  @include mixins.buttonSelected;
+}
