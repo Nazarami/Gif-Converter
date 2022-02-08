@@ -3,7 +3,7 @@ import Body from "./body";
 import TopBar from "../BeforeUpload/TopBar";
 import { useContext } from "react";
 import { videoContext } from "Context";
-function main() {
+function Main() {
   const { video } = useContext(videoContext);
   if (!video) return null;
   return (
@@ -15,4 +15,4 @@ function main() {
   );
 }
 
-export default main;
+export default Main;

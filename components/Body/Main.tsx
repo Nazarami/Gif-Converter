@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import styles from "styles/body/main.module.scss";
 import { useState } from "react";
-import BeforeUpload from "./BeforeUpload/main";
+import BeforeUpload from "./BeforeUpload/Main";
 import AfterUpload from "./AfterUpload/Main";
 import { videoContext } from "Context";
 

@@ -6,7 +6,7 @@ import FileUpload from "./FileUpload";
 import { useContext, useState } from "react";
 import { videoContext } from "Context";
 
-function beforeUpload() {
+function BeforeUpload() {
   const { setVideo } = useContext(videoContext);
   const [hover, setHover] = useState(false);
   return (
@@ -52,4 +52,4 @@ function beforeUpload() {
   );
 }
 
-export default beforeUpload;
+export default BeforeUpload;

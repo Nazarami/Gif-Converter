@@ -3,7 +3,7 @@ import SelectQuality from "./SelectQuality";
 import ProgressBar from "./ProgressBar";
 import { useState } from "react";
 import styles from "styles/body/afterUpload/BottomBar.module.scss";
-function bottomBar({ video }: { video: File }) {
+function BottomBar({ video }: { video: File }) {
   const [quality, setQuality] = useState(1);
   return (
     <div className={styles.wrapper}>
@@ -14,4 +14,4 @@ function bottomBar({ video }: { video: File }) {
   );
 }
 
-export default bottomBar;
+export default BottomBar;

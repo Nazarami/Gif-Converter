@@ -3,7 +3,7 @@ import Top from "./TopBar";
 import BottomBar from "./BottomBar";
 // import styles from "styles/body/main.module.scss";
 
-function main() {
+function Main() {
   return (
     <div>
       <Top />
@@ -13,4 +13,4 @@ function main() {
   );
 }
 
-export default main;
+export default Main;
