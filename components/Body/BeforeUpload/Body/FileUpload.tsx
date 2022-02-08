@@ -1,7 +1,7 @@
 import styles from "styles/body/beforeUpload/body.module.scss";
 
 import { useRef, useContext } from "react";
-import { videoContext } from "../../../../Context";
+import { videoContext } from "Context";
 function FileUpload() {
   const inputFile = useRef<HTMLInputElement>(null);
   const { setVideo } = useContext(videoContext);
@@ -9,6 +9,7 @@ function FileUpload() {
     <>
       <input
         type="file"
+        accept="video/*"
         id="file"
         ref={inputFile}
         style={{ display: "none" }}
