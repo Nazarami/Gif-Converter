@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import { load } from "components/ffmpeg";
 import Loading from "components/loading";
