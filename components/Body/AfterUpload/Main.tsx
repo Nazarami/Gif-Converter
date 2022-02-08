@@ -1,4 +1,4 @@
-import BottomBar from "./bottomBar";
+import BottomBar from "./BottomBar";
 import Body from "./body";
 import TopBar from "../BeforeUpload/TopBar";
 import { useContext } from "react";
