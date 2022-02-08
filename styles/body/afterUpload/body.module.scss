@@ -1,5 +1,26 @@
+@use "styles/mixins.module.scss" as mixins;
 .uploadedVideo {
   border-radius: 2%;
   width: 852px;
   height: 480px;
+}
+
+$breakpoint-ipad: 880px;
+$breakpoint-mobile: 655px;
+
+@media (max-width: $breakpoint-ipad) {
+  .videoContainer {
+    @include mixins.centred;
+  }
+  .uploadedVideo {
+    width: 612px;
+    height: 400px;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .uploadedVideo {
+    width: 306px;
+    height: 200px;
+  }
 }

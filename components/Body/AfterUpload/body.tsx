@@ -5,6 +5,7 @@ function VideoPreview({ video }: { video: File }) {
   const videoControls = useRef<any>(null);
   return (
     <div
+      className={styles.videoContainer}
       onClick={() => {
         if (videoControls.current.paused) {
           videoControls.current.play();
