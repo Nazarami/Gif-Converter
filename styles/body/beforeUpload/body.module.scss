@@ -1,4 +1,7 @@
 @use "../../mixins.module.scss" as mixins;
+.media {
+  display: none;
+}
 .wrapper {
   @include mixins.centred;
   background-color: #f8f8f8;
@@ -16,6 +19,10 @@
   height: 288px;
 }
 
+.hover {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='34' ry='34' stroke='%231473e6' stroke-width='7' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
 // File Upload
 .uploadVideoPrompt {
   font-size: 0.7rem;
@@ -23,5 +30,39 @@
   cursor: pointer;
   &:hover {
     filter: brightness(82%);
+  }
+}
+
+// Media Query
+$breakpoint-ipad: 850px;
+$breakpoint-mobile: 655px;
+$breakpoint-sm: 433px;
+
+@media (max-width: $breakpoint-ipad) {
+  .wrapper {
+    width: 612px;
+    height: 400px;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .wrapper {
+    background: white;
+    width: 400px;
+    height: 288px;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .wrapper {
+    width: 200px;
+    height: 144px;
+  }
+  .dottedOutline {
+    width: 200px;
+    height: 144px;
+  }
+  .videoWrapperHeader {
+    display: none;
   }
 }

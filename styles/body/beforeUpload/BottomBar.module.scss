@@ -1,5 +1,13 @@
+$breakpoint-sm: 433px;
+
 .subHeading {
   text-align: center;
   font-size: 0.8rem;
   font-weight: 300;
+}
+
+@media (max-width: $breakpoint-sm) {
+  .subHeading {
+    display: none;
+  }
 }
