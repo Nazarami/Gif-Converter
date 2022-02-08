@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { convertToGif } from "functions/ready";
+import LoadingAnimation from "./loadingAnimation";
 import styles from "styles/body/afterUpload/BottomBar.module.scss";
 interface Props {
   video: File;
@@ -29,7 +30,7 @@ function DownloadButton({ video, quality }: Props) {
           setConverting(false);
         }}
       >
-        Download
+        {!converting ? "Download" : <LoadingAnimation />}
       </button>
     </div>
   );
