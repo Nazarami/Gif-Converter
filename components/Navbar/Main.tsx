@@ -7,7 +7,6 @@ function Navbar() {
   return (
     <div className={styles.wrapper}>
       <MountainLogo height="50px" width="50px" />
-      <Menu />
       <SocialMedia />
     </div>
   );

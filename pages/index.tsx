@@ -19,9 +19,7 @@ const Home: NextPage = () => {
       <Navbar />
       <Body />
     </>
-  ) : (
-    <Loading />
-  );
+  ) : null;
 };
 
 export default Home;
